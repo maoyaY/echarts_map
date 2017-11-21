@@ -60,6 +60,7 @@ export default{
         }
         /*调用地区绘画*/
           _this.regionMap(params.name);
+          _this.$emit('regionclick',params)
       });
     },
     regionMap(sheng){
@@ -73,8 +74,8 @@ export default{
 
       chinaMap1.setOption(tpls.chinaMap1,true);
       chinaMap1.on('click', function (params) {
-
-          _this.cityMap(sheng,params.name);
+        _this.cityMap(params.name,params.data.itemStyle.normal.areaColor);
+        _this.$emit('provinceclick',params)
       });
 
     },
@@ -84,17 +85,9 @@ export default{
         var chinaMap2 = document.getElementById("map_city");
         chinaMap2 = echarts.init(chinaMap2);
         chinaMap2.setOption(tpls.chinaMap2,true);
-//        chinaMap2.on('click', function (params) {
-//          var _arr = _this.city_data;
-//          for(let i =0;i<_arr.length;i++){
-//            if(_arr[i].name.indexOf(params.name) != -1){
-//              _this.area_city = _arr[i].value;
-//              _this.area = _arr[i].value;
-//            }
-//          }
-
-////            _this.show_map =3;
-//        });
+        chinaMap2.on('click', function (params) {
+          _this.$emit('cityclick',params)
+        });
 
     },
   }
@@ -107,7 +100,6 @@ export default{
   .chart{
     width: 500px;
     height: 400px;
-    border: 1px solid #eee;
     float: left;
   }
 

@@ -4,7 +4,7 @@
     <router-link to="/login">点击去登录页</router-link>
     <div class="container">
       <router-view/>
-      <mapchart ></mapchart>
+      <mapchart @regionclick="region_click" @provinceclick="province_click" @cityclick="city_click"></mapchart>
     </div>
   </div>
 </template>
@@ -20,6 +20,17 @@
       ])
     },
     created() {
+    },
+    methods: {
+      region_click(v) {
+        console.log(v)
+      },
+      province_click(v) {
+        console.log(v)
+      },
+      city_click(v) {
+        console.log(v)
+      }
     },
     components: {
       mapchart
