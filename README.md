@@ -35,4 +35,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ## 项目中使用了vuex来进行管理数据
 
 ## 登入登出的一个状拦截 与vuex配合进行
-# echarts_map
+# 使用echarts中各个省份js文件
+# 地区是自定义的，可在echartsOption.js中修改
